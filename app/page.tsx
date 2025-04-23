@@ -105,29 +105,21 @@ export default function Home() {
       <div
         ref={bgRef}
         className="absolute inset-0 z-0 transition-all duration-1000"
-        style={{
-          background: 'linear-gradient(to bottom right, #b2ddf7, #e2d2ef)',
-        }}
+        style={{ background: 'linear-gradient(to bottom right, #b2ddf7, #e2d2ef)' }}
       />
       <div className="absolute inset-0 z-0 bg-[url('/grain.png')] opacity-10 mix-blend-overlay" />
 
       {/* Nav */}
-      <nav className="relative z-10 flex items-center justify-between px-10 py-6 border-b border-white/20 text-base font-medium">
+      <nav className="relative z-10 flex flex-col sm:flex-row items-center justify-between px-6 sm:px-10 py-6 border-b border-white/20 text-base font-medium gap-4 sm:gap-0">
         <a href="/" className="text-xl font-semibold tracking-tight">
           Agentory
         </a>
-        <div className="flex items-center gap-8">
-          <a href="#browseagents" className="hover:underline">
-            Browse Agents
-          </a>
-          <a href="submitanagent" className="hover:underline">
-            Submit an Agent
-          </a>
-          <a href="#about" className="hover:underline">
-            About
-          </a>
+        <div className="flex flex-wrap justify-center items-center gap-6 text-sm">
+          <a href="#browseagents" className="hover:underline">Browse Agents</a>
+          <a href="submitanagent" className="hover:underline">Submit an Agent</a>
+          <a href="#about" className="hover:underline">About</a>
         </div>
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-2 sm:gap-4">
           <SignedOut>
             <SignInButton mode="redirect" forceRedirectUrl="/dashboard">
               <div className="hover:underline text-sm cursor-pointer">Sign In</div>
@@ -153,7 +145,7 @@ export default function Home() {
       {/* Hero */}
       <section className="relative z-10 flex flex-col justify-center items-center px-6 text-center pt-32 pb-10">
         <h1
-          className="text-6xl font-semibold tracking-tight whitespace-nowrap drop-shadow-lg"
+          className="text-4xl sm:text-6xl font-semibold tracking-tight whitespace-nowrap drop-shadow-lg"
           style={{ fontFamily: 'var(--font-lora)' }}
         >
           <span className="mr-2">Your</span>

@@ -75,18 +75,18 @@ export default function SearchAgentsPage() {
   const displayAgents = searchMode === 'ai' && aiSearch.trim() ? aiResults : filtered;
 
   return (
-    <div className="min-h-screen relative flex text-gray-900" style={{ fontFamily: 'Inter, sans-serif' }}>
+    <div className="min-h-screen relative flex flex-col lg:flex-row text-gray-900" style={{ fontFamily: 'Inter, sans-serif' }}>
       <div className="absolute inset-0 z-0 transition-all duration-1000" style={{ background: 'linear-gradient(to bottom right, #b2ddf7, #e2d2ef)' }} />
       <div className="absolute inset-0 z-0 bg-[url('/grain.png')] opacity-10 mix-blend-overlay" />
 
-      <aside className="relative z-10 w-64 min-h-screen bg-white/70 backdrop-blur-md border-r border-gray-200 p-6">
+      <aside className="relative z-10 w-full lg:w-64 bg-white/70 backdrop-blur-md border-b lg:border-b-0 lg:border-r border-gray-200 p-6">
         <h2 className="text-xl font-semibold mb-4">Use Cases</h2>
-        <div className="space-y-2">
+        <div className="grid grid-cols-2 lg:block gap-2">
           {useCases.map((cat) => (
             <button
               key={cat}
               onClick={() => setSelectedCategory(cat)}
-              className={`block w-full text-left px-4 py-2 rounded-lg transition ${
+              className={`text-left px-4 py-2 rounded-lg transition text-sm ${
                 selectedCategory === cat ? 'bg-black text-white' : 'hover:bg-gray-100 text-black'
               }`}
             >
@@ -96,9 +96,9 @@ export default function SearchAgentsPage() {
         </div>
       </aside>
 
-      <main className="relative z-10 flex-1 p-10">
-        <div className="flex justify-between items-center mb-6">
-          <h1 className="text-3xl font-bold text-black">🔍 Search for Agents</h1>
+      <main className="relative z-10 flex-1 p-6 sm:p-10">
+        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
+          <h1 className="text-2xl sm:text-3xl font-bold text-black">🔍 Search for Agents</h1>
           <Link
             href="/dashboard"
             className="px-4 py-1 rounded-md bg-black text-white font-medium text-sm hover:bg-gray-900 transition"
@@ -107,9 +107,9 @@ export default function SearchAgentsPage() {
           </Link>
         </div>
 
-        <div className="flex gap-4 mb-6">
+        <div className="flex flex-col sm:flex-row gap-4 mb-6">
           <button
-            className={`px-4 py-2 rounded-full font-medium transition border ${
+            className={`px-4 py-2 rounded-full font-medium transition border text-sm ${
               searchMode === 'standard'
                 ? 'bg-black text-white border-black'
                 : 'bg-white/70 text-black border-gray-300 hover:bg-white'
@@ -119,7 +119,7 @@ export default function SearchAgentsPage() {
             Standard Search
           </button>
           <button
-            className={`px-4 py-2 rounded-full font-medium transition border ${
+            className={`px-4 py-2 rounded-full font-medium transition border text-sm ${
               searchMode === 'ai'
                 ? 'bg-black text-white border-black'
                 : 'bg-white/70 text-black border-gray-300 hover:bg-white'
@@ -212,4 +212,3 @@ export default function SearchAgentsPage() {
     </div>
   );
 }
-
