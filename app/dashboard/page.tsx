@@ -17,7 +17,7 @@ export default function DashboardPage() {
   }, [isLoaded, user, router]);
 
   if (!isLoaded) {
-    return null; // or a loading spinner
+    return null;
   }
 
   return (
@@ -50,33 +50,55 @@ export default function DashboardPage() {
 
       {/* Grid */}
       <div className="relative z-10 mt-12 grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-4xl mx-auto px-8">
+        {/* Active */}
         <Link href="/searchagents">
           <div className="cursor-pointer p-6 rounded-xl bg-white/60 backdrop-blur-lg shadow-md hover:shadow-lg transition">
             <h2 className="text-lg font-semibold">🔍 Search for Agents</h2>
-            <p className="text-sm text-gray-700 mt-1">Find new AI tools to install and explore.</p>
+            <p className="text-sm text-gray-700 mt-1">Find the agents you need.</p>
           </div>
         </Link>
 
-        <Link href="/myagents">
-          <div className="cursor-pointer p-6 rounded-xl bg-white/60 backdrop-blur-lg shadow-md hover:shadow-lg transition">
-            <h2 className="text-lg font-semibold">🤖 My Agents</h2>
-            <p className="text-sm text-gray-700 mt-1">Manage the agents you’ve installed.</p>
+        {/* Disabled Cards with centered overlays */}
+        {[
+          {
+            title: "🤖 My Agents",
+            description: "Manage the agents you’ve installed.",
+          },
+          {
+            title: "🧠 Memory Bank",
+            description: "Securely store files, context, and data.",
+          },
+          {
+            title: "🧪 Test Agents",
+            description: "Try agents in a sandbox before installing.",
+          },
+        ].map((item, index) => (
+          <div
+            key={index}
+            className="relative p-6 rounded-xl bg-white/60 backdrop-blur-lg shadow-md text-center text-gray-500"
+          >
+            <div className="absolute inset-0 bg-white/50 backdrop-blur-sm rounded-xl z-10 flex flex-col items-center justify-center pointer-events-none">
+              <div className="text-sm font-medium">🎉 Coming Soon</div>
+            </div>
+            <div className="relative z-0">
+              <h2 className="text-lg font-semibold">{item.title}</h2>
+              <p className="text-sm mt-1">{item.description}</p>
+            </div>
           </div>
-        </Link>
+        ))}
+      </div>
 
-        <Link href="/memory">
-          <div className="cursor-pointer p-6 rounded-xl bg-white/60 backdrop-blur-lg shadow-md hover:shadow-lg transition">
-            <h2 className="text-lg font-semibold">🧠 Memory Bank</h2>
-            <p className="text-sm text-gray-700 mt-1">Securely store files, context, and data.</p>
+      {/* Full-width bottom card */}
+      <div className="relative z-10 mt-6 max-w-md mx-auto px-8">
+        <div className="relative p-6 rounded-xl bg-white/60 backdrop-blur-lg shadow-md text-center text-gray-500">
+          <div className="absolute inset-0 bg-white/50 backdrop-blur-sm rounded-xl z-10 flex flex-col items-center justify-center pointer-events-none">
+            <div className="text-sm font-medium">🎉 Coming Soon</div>
           </div>
-        </Link>
-
-        <Link href="/testagents">
-          <div className="cursor-pointer p-6 rounded-xl bg-white/60 backdrop-blur-lg shadow-md hover:shadow-lg transition">
-            <h2 className="text-lg font-semibold">🧪 Test Agents</h2>
-            <p className="text-sm text-gray-700 mt-1">Try agents in a sandbox before installing.</p>
+          <div className="relative z-0">
+            <h2 className="text-lg font-semibold">🛠️ Make Your Own Agent</h2>
+            <p className="text-sm mt-1">Design and deploy your own custom AI agent.</p>
           </div>
-        </Link>
+        </div>
       </div>
     </main>
   );

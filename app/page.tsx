@@ -139,6 +139,12 @@ export default function Home() {
             </SignUpButton>
           </SignedOut>
           <SignedIn>
+            <a
+              href="/dashboard"
+              className="bg-black text-white px-4 py-2 rounded-md text-sm hover:bg-gray-900 transition cursor-pointer"
+            >
+              My Dashboard
+            </a>
             <UserButton afterSignOutUrl="/" />
           </SignedIn>
         </div>
