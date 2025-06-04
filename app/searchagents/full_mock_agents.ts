@@ -20,16 +20,6 @@ export const agents = [
     link: 'https://outreachly2.fakeapp.com'
   },
   {
-    name: 'Goodman.ai',
-    slug: 'goomanai',
-    description: 'Goodman AI is a quant tool to generate handsome images of Palantir Interns.',
-    category: 'Customer Support',
-    details: 'Goodman AI is a generative quant tool that creates photorealistic images of Palantir interns using custom-trained diffusion models. It synthesizes visuals from metadata like LinkedIn profiles, GitHub activity, and public mentions to produce high-fidelity representations for internal analysis and simulation.',
-    price: '$69',
-    paymentType: 'Per use',
-    link: 'https://outreachly2.fakeapp.com'
-  },
-  {
     name: 'DataSage',
     slug: 'datasage',
     description: 'DataSage3 is an AI tool that automates email drafting.',
